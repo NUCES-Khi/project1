@@ -3,6 +3,12 @@
 void Game::initVariables(){
 	this->window = NULL;
 	
+	int points;
+	float enemySpawnTimer;
+	float enemySpawnTimerMax;
+	int maxHurdles;
+	this->points = 0;
+	
 }
 
 void Game::initWindow(){
@@ -59,13 +65,14 @@ void Game::pollEvents(){
 
 void Game::update(){
 	this->pollEvents();
+	this->updateEnemies();
 }
 
 void Game::render(){
 	this->window->clear(sf::Color::Black);
 	
 	//Draw Game objects
-	
+	this->renderEnemies();
 	this->window->draw(this->enemy);
 	this->window->display();
 }
@@ -79,6 +86,14 @@ Hurdle::Hurdle(){
     shape.setFillColor(sf::Color(139, 69, 19)); // Brown color
 }
 
+void Game::spawnHurdle(){
+	
+	
+}
+
+void Game::updateEnemies(){
+	
+}
 
 void Hurdle::Draw(sf::RenderWindow& window){
 	window.draw(this->shape);
